@@ -1,0 +1,28 @@
+/* DM Sans Font */
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;700&display=swap');
+/* IBM Plex Mono Font */
+@import url('https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@500&display=swap');
+
+/* Tailwind Directives */
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom Style */
+#root{
+  @apply bg-white text-base text-customFontColor font-customFontDM font-customNormal;
+}
+
+label{
+  @apply text-lg;
+}
+
+input,
+textarea{
+  @apply placeholder:text-[#B4B4B4] border border-[#D7D7D7] p-2 rounded-customSmall outline-none;
+}
+
+/* Custom Classes */
+.container{
+  @apply w-11/12 mx-auto;
+}
