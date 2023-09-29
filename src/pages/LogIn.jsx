@@ -3,6 +3,9 @@ import { AppLogo, SecondaryButton } from '../components'
 import GoogleIcon from '../assets/images/google.png'
 import GithubIcon from '../assets/images/github.png'
 import MicrosoftIcon from '../assets/images/microsoft.png'
+import { useNavigate } from 'react-router-dom'
+import { useDispatch } from 'react-redux'
+import { login } from '../redux/reducers/authReducer'
 
 const LogIn = () => {
 
@@ -11,6 +14,13 @@ const LogIn = () => {
         { icon: GithubIcon, title: 'GitHub' },
         { icon: MicrosoftIcon, title: 'Microsoft' },
     ]
+
+    const dispatch = useDispatch();
+    const navigate = useNavigate();
+    const handleLogIn = () => {
+        dispatch(login())
+        navigate('/')
+    }
 
     return (
         <div className='relative container py-12'>
@@ -28,6 +38,7 @@ const LogIn = () => {
                     {authServices.map((item, index) => (
                         <SecondaryButton
                             type={`submit`}
+                            task={handleLogIn}
                             key={index}
                             content={<><img src={item.icon} alt="img" /> Log in with {item.title}</>}
                             className={`p-2.5 flex items-center justify-center gap-2`}
